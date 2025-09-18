@@ -1,0 +1,2 @@
+Name = "Zak"
+print(Name)
