@@ -7,6 +7,10 @@ class Shape:
             raise TypeError(f"x has to be a number") #if not it will show somthing is wrong withh Error message
         if not isinstance(y, (int, float)):
             raise TypeError(f"y has to be a number")
+        
+        # this is going to store the values of x and y as float values, beacuse the positions have decimal in them 
+        self._x = float # this is privat beacause i would like to control how the values are set in the code. 
+        self._y = float 
 
         
       
