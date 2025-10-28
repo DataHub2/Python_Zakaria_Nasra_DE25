@@ -1,6 +1,6 @@
-# this will be the parent class for the diffrent geometric shapes
+# this will be the base class for the diffrent geometric shapes
 class Shape:
-    # this is the parent class
+    # this is the b class
     def __init__ (self, x = 0, y = 0):
 
         if not isinstance(x, (int, float)): #this part will check if the x and y values are numbers
@@ -14,18 +14,36 @@ class Shape:
 
 
         # this lines bellow will create property thst is a read only property 
+                #### note that i got help with this part of the code from a website called pynative.com ####  
         @property
-        def area(self):
+        def area(self):     
             raise NotImplementedError("the underclass has to be implemented for area") # the area method has to ba used in the underclass 
         
         
         @property
         def perimeter(self):
             raise NotImplementedError("the underclass has to be implemented for perimeter") # the perimeter method has to ba used in the underclass
+
+
+        @property
+        def x(self):   #  this property gives read only access to the x coordinate
+            return self._x
+        
+        @property
+        def t(self):   #  this property gives read only access to the y coordinate
+            return self._y
+
+        
+        @property
+        def translate(self, move_in_x_coordinate, move_in_y_coordinate): # this method will move the shape in the x and y coordinate
+            #the property bill move the shapes posiotion when a number is added
+            
+            self._x += move_in_x_coordinate
+            self._y += move_in_y_coordinate 
+
+
+           
     
         
 
             
-
-        
-      
