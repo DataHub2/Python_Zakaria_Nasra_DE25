@@ -1,5 +1,5 @@
 # this will be the base class for the diffrent geometric shapes
-class Shape:
+class shape:
     # this is the b class
     def __init__ (self, x = 0, y = 0):
 
@@ -15,31 +15,49 @@ class Shape:
 
         # this lines bellow will create property thst is a read only property 
                 #### note that i got help with this part of the code from a website called pynative.com ####  
-        @property
-        def area(self):     
-            raise NotImplementedError("the underclass has to be implemented for area") # the area method has to ba used in the underclass 
+    @property
+    def area(self):     
+        raise NotImplementedError("the underclass has to be implemented for area") # the area method has to ba used in the underclass 
         
         
-        @property
-        def perimeter(self):
+    @property
+    def perimeter(self):
             raise NotImplementedError("the underclass has to be implemented for perimeter") # the perimeter method has to ba used in the underclass
 
 
-        @property
-        def x(self):   #  this property gives read only access to the x coordinate
+    @property
+    def x(self):   #  this property gives read only access to the x coordinate
             return self._x
         
-        @property
-        def t(self):   #  this property gives read only access to the y coordinate
+        
+    @property
+    def y(self):   #  this property gives read only access to the y coordinate
             return self._y
 
         
-        @property
-        def translate(self, move_in_x_coordinate, move_in_y_coordinate): # this method will move the shape in the x and y coordinate
+
+    def translate(self, move_in_x_coordinate, move_in_y_coordinate): # this method will move the shape in the x and y coordinate
             #the property bill move the shapes posiotion when a number is added
             
+            
+            # Note!! i got stuch here beacuse i did not write the if not isinstance part, a classmate helped me with this part
+            if not isinstance(move_in_x_coordinate, (int, float)):
+                raise TypeError(f"move_in_x_coordinate has to be a number or decimal value")
+            if not isinstance(move_in_y_coordinate, (int, float)):
+                raise TypeError(f"move_in_y_coordinate has to be a number or decimal value")
+            
+            
+            # this part is going to move the shape depending on the value that is inputed 
+            
             self._x += move_in_x_coordinate
-            self._y += move_in_y_coordinate 
+            self._y += move_in_y_coordinate   
+
+
+    @property
+    def __eg__(self, other):
+         if not isinstance(other, shape):
+              return False 
+         self_area == other.area
 
 
            
