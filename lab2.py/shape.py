@@ -53,11 +53,23 @@ class shape:
             self._y += move_in_y_coordinate   
 
 
-    @property
-    def __eg__(self, other):
+    @property # the property looks if two shapes have the same area 
+    def __eq__(self, other):
          if not isinstance(other, shape):
               return False 
-         self_area == other.area
+         self.area == other.area
+
+
+    @property # this looks to see if one shape has a smaller perimiter then the other shape 
+    def __lt__ (self, other):
+         if not isinstance(other, shape):
+              return False 
+         self.perimeter < other.perimeter 
+
+
+
+
+
 
 
            
