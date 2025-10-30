@@ -49,7 +49,7 @@ class Shape:
             raise TypeError(f"move_in_x_coordinate has to be a number or decimal value")
      if not isinstance(move_in_y_coordinate, (int, float)):
             raise TypeError(f"move_in_y_coordinate has to be a number or decimal value")
-     # this part is going to move the shape depending on the value that is inputed 
+     # this part is going to move the shape depending on the value that giis inputed 
             
      self._x += move_in_x_coordinate
      self._y += move_in_y_coordinate   
@@ -79,7 +79,21 @@ class Shape:
          if not isinstance (other, Shape):
               return False 
          return self.perimeter <= other.perimeter 
-              
+
+    def __ge__ (self, other): # this is meant to check if area greater then or equal to other shape
+         if not isinstance (other, Shape):
+              return False 
+         return self.area >= other.area 
+
+    def __repr__(self):
+         return f"shape(x = {self._x}, y = {self._y})"
+    
+
+    def __str__ (self):
+         return f" shape placement ({self._x}, {self._y})"
+    
+    
+         
           
     
     
