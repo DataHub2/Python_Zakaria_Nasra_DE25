@@ -69,7 +69,7 @@ class Shape:
     def __lt__ (self, other):
          if not isinstance(other, Shape):
               return False 
-         self.perimeter < other.perimeter 
+         return self.perimeter < other.perimeter 
 
     
     def __gt__ (self, other): # checks to see if one shape has a greater area then the other shape 
