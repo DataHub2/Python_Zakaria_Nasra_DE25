@@ -27,35 +27,32 @@ class Shape:
         
     @property
     def perimeter(self):
-            raise NotImplementedError("the underclass has to be implemented for perimeter") # the perimeter method has to ba used in the underclass
+        raise NotImplementedError("the underclass has to be implemented for perimeter") # the perimeter method has to ba used in the underclass
 
 
     @property 
     def x(self):   #  this property gives read only access to the x coordinate
-            return self._x
+        return self._x
         
         
     @property
     def y(self):   #  this property gives read only access to the y coordinate
-            return self._y
+        return self._y
 
         
 
     def translate(self, move_in_x_coordinate, move_in_y_coordinate): # this method will move the shape in the x and y coordinate
-            #the property bill move the shapes posiotion when a number is added
+     #the property bill move the shapes posiotion when a number is added
+        
+     # Note!! i got stuch here beacuse i did not write the if not isinstance part, a classmate helped me with this part
+     if not isinstance(move_in_x_coordinate, (int, float)):
+            raise TypeError(f"move_in_x_coordinate has to be a number or decimal value")
+     if not isinstance(move_in_y_coordinate, (int, float)):
+            raise TypeError(f"move_in_y_coordinate has to be a number or decimal value")
+     # this part is going to move the shape depending on the value that is inputed 
             
-            
-            # Note!! i got stuch here beacuse i did not write the if not isinstance part, a classmate helped me with this part
-            if not isinstance(move_in_x_coordinate, (int, float)):
-                raise TypeError(f"move_in_x_coordinate has to be a number or decimal value")
-            if not isinstance(move_in_y_coordinate, (int, float)):
-                raise TypeError(f"move_in_y_coordinate has to be a number or decimal value")
-            
-            
-            # this part is going to move the shape depending on the value that is inputed 
-            
-            self._x += move_in_x_coordinate
-            self._y += move_in_y_coordinate   
+     self._x += move_in_x_coordinate
+     self._y += move_in_y_coordinate   
 
 
      # the property looks if two shapes have the same area 
@@ -79,7 +76,7 @@ class Shape:
 
     # this checks if one shape has smaller or equal perimeter then other shape
     def __le__(self, other):
-         if not isinstance (self, other):
+         if not isinstance (other, Shape):
               return False 
          return self.perimeter <= other.perimeter 
               
