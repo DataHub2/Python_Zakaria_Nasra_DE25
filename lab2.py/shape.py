@@ -1,6 +1,11 @@
 # this will be the base class for the diffrent geometric shapes
-class shape:
-    # this is the b class
+ 
+class Shape:
+    """ this is the base class (parent class) """
+    
+    
+
+
     def __init__ (self, x = 0, y = 0):
 
         if not isinstance(x, (int, float)): #this part will check if the x and y values are numbers
@@ -25,7 +30,7 @@ class shape:
             raise NotImplementedError("the underclass has to be implemented for perimeter") # the perimeter method has to ba used in the underclass
 
 
-    @property
+    @property 
     def x(self):   #  this property gives read only access to the x coordinate
             return self._x
         
@@ -53,18 +58,37 @@ class shape:
             self._y += move_in_y_coordinate   
 
 
-    @property # the property looks if two shapes have the same area 
+     # the property looks if two shapes have the same area 
     def __eq__(self, other):
-         if not isinstance(other, shape):
+         if not isinstance(other, Shape):
               return False 
-         self.area == other.area
+         return self.area == other.area
+         
 
-
-    @property # this looks to see if one shape has a smaller perimiter then the other shape 
+     # this looks to see if one shape has a smaller perimiter then the other shape 
     def __lt__ (self, other):
-         if not isinstance(other, shape):
+         if not isinstance(other, Shape):
               return False 
          self.perimeter < other.perimeter 
+
+    
+    def __gt__ (self, other): # checks to see if one shape has a greater area then the other shape 
+         if not isinstance(other, Shape):
+              return False
+         return self.area > other.area
+
+    # this checks if one shape has smaller or equal perimeter then other shape
+    def __le__(self, other):
+         if not isinstance (self, other):
+              return False 
+         return self.perimeter <= other.perimeter 
+              
+          
+    
+    
+
+        
+                
 
 
 
