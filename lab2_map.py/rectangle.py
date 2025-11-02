@@ -18,10 +18,23 @@ class Rectangle(Shape):
         # i kept the values private, this is so i can have control of how they are set
         self._width = float(width)
         self._height = float(height)
+
+
+    @property
+    def area(self):
+        # this checks the area by multipling the width and the height 
+        return self._width * self._height
+    
+    @property
+    def perimeter(self):
+        # this will check the perimeter by additing the height and the width, and the multipling it by 2
+        return 2 * (self._width + self._height)
+    
+
         
         
-        
-        
+
+
 
 
     
