@@ -43,6 +43,9 @@ class Rectangle(Shape):
     # Note that i went through this part with LLM and got instructions on how i can do it
     def __repr__(self):
         return f"rectangle(x = {self._x}, y = {self._y}, width = {self._width}, height = {self._height})"
+    #this method makes the string more readbable showing placement and size
+    def __str__(self):
+        return f"rectangle placement is on: ({self._x}, {self._y}, the width {self.width}, the height {self._height})"
     
     
     
