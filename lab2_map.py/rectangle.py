@@ -30,10 +30,11 @@ class Rectangle(Shape):
         # this will check the perimeter by additing the height and the width, and the multipling it by 2
         return 2 * (self._width + self._height)
     
-    #this method below will check
+    #this method below will check # Note that i got help from a class mate adding the @property, i got stuck
     @property
     def width(self):
         return self._width
+    
     @property
     def height(self):
         return self._height
