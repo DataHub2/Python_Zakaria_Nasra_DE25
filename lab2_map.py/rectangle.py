@@ -39,6 +39,13 @@ class Rectangle(Shape):
     def height(self):
         return self._height
     
+    # this repr is for the developers that maybe looking ad the code 
+    # Note that i went through this part with LLM and got instructions on how i can do it
+    def __repr__(self):
+        return f"rectangle(x = {self._x}, y = {self._y}, width = {self._width}, height = {self._height})"
+    
+    
+    
 
         
         
