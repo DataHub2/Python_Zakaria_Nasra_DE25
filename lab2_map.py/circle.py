@@ -14,6 +14,15 @@ class Circle(Shape):
         # stores value as float
         self._radius = float(radius)
 
+    # this property is for calculating the area of the circle
+    # Note that i got with this part from a website called: https://docs.kanaries.net/topics/Python/python-pi
+    @property
+    def area(self):
+        return math.pi * (self._radius ** 2)  
+      
+
+
+
 
 
     
