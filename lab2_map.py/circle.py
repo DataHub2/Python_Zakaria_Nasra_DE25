@@ -19,6 +19,11 @@ class Circle(Shape):
     @property
     def area(self):
         return math.pi * (self._radius ** 2)  
+    # this calculates the perimeter in this case (circumference)
+    @property
+    def perimeter(self):
+        return 2 * math.pi * self._radius 
+    
       
 
 
