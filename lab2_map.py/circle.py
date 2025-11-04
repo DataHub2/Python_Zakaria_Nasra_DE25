@@ -28,6 +28,10 @@ class Circle(Shape):
     def radius(self):
         return self._radius 
     
+    # checks to see if circle is a circle
+    def is_unit_circle(self):
+        return self._radius == 1
+    
     # this a repr for the developers
     def __repr__(self):
         return f"circle(x = {self._x}, y = {self._y} radius = {self._radius})"
