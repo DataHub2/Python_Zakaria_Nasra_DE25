@@ -23,10 +23,18 @@ class Circle(Shape):
     @property
     def perimeter(self):
         return 2 * math.pi * self._radius 
-    
+    # this gives read only accses to radius
     @property
     def radius(self):
         return self._radius 
+    
+    # this a repr for the developers
+    def __repr__(self):
+        return f"circle(x = {self._x}, y = {self._y} radius = {self._radius})"
+    
+    # this code is for more readble string text showing the position and radius
+    def __str__(self):
+        return f"circle placement is : ({self._x}, {self._y}) with radius {self._radius}"
     
 
     
