@@ -7,6 +7,14 @@ class Circle(Shape):
 
         super().__init__(x, y) # this is to connect with the parent class
 
+        # this is going to make sure that the radius is a number or else it will raise TypeError
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius has to be a number")
+        
+        # stores value as float
+        self._radius = float(radius)
+
+
 
     
 
