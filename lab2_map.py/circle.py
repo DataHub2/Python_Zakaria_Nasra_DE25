@@ -24,6 +24,12 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self._radius 
     
+    @property
+    def radius(self):
+        return self._radius 
+    
+
+    
       
 
 
