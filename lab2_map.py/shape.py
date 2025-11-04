@@ -1,8 +1,6 @@
 
 class Shape:
-    """ This is the base class (parent class) 
     
-    it gives the other classes that i have med functionallity. """
     
 
     def __init__ (self, x = 0, y = 0):
