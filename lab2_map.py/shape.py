@@ -1,94 +1,130 @@
 
 class Shape:
+    """ 
+    This is the base of the geomatric shapes.
+
+    This class is going to represent a general shape in a coordinate system and it gives
+    functionality to the subclasses (Rectangle, Circle).
+    In this class i have defined coordinate handling, translation and comaprison of area.
+
+
+    Attributes of this class: 
+        _x (float) : this is the x coordinate of the shape
+        _y (float) : this is the y coordinate of the shape
+
+    Methods:
+        translate: moves the shape depending on the inputed value.
+        area(): this has to be implemented in the subclass
+        perimeter(): this has to be implemented in the subclass
+        __eq__, __lt__, __gt__, __le__, __ge__ : Comparison method that compares area.
+         __repr__(): this represents strings better for develepers.
+        __str__(): this method gives the user a more readble placement description.
     
+    """
     
 
     def __init__ (self, x = 0, y = 0):
-        #this part will check if the x and y values are numbers
-        #if not it will show somthing is wrong withh Error message
+        """
+        Initializing a shape object with the coordinates thats given. 
+
+        Args: 
+            x (float): x coordinates. 
+            y (float): y coordinates.
+
+        Error raise:
+        TypeErorr: this Error gets raised if x or y is not a number.
+        """
+        
         if not isinstance(x, (int, float)): 
             raise TypeError(f"x has to be a number") 
         if not isinstance(y, (int, float)):
             raise TypeError(f"y has to be a number")
         
-    # this is going to store the values of x and y as float values, beacuse the positions have decimal in them 
-    # this is privat beacause i would like to control how the values are set in the code.    
+    # this is going to store the values of x and y as float values.     
         self._x = float(x) 
         self._y = float(y)
 
 
-    # this lines bellow will create property thst is a read only property 
-    #### note that i got help with this part of the code from a website called pynative.com ####  
-                
-     # the area method has to ba used in the underclass 
+    
+    #### note that i got help with this part of the code from a website called https://pynative.com/python-area-perimeter-diagonal-of-square/ ####         
     @property
-    def area(self):     
+    def area(self) -> float :     
+        """This property has to be implemented in the subclass"""
         raise NotImplementedError("the underclass has to be implemented for area") 
         
-    # the perimeter method has to ba used in the underclass 
     @property
-    def perimeter(self):
+    def perimeter(self) -> float:
+        """This property has to be implemented in the subclass"""
         raise NotImplementedError("the underclass has to be implemented for perimeter") 
 
-     # this property gives read only access to the x coordinate
+    
     @property 
-    def x(self):   
+    def x(self) -> float :   
+        """This property gives read only accsess to the x coordinate"""
         return self._x
-        
-    # this property gives read only access to the y coordinate    
+            
     @property
-    def y(self):   
+    def y(self) -> float :   
+        """This property gives read only accsess to the y coordinate"""
         return self._y
 
-    # moves the shape position by adding the value for x and y 
+     
     def translate(self, move_in_x_coordinate, move_in_y_coordinate): 
+        """ 
+        Moves the shape by adding a value to x and y
+
+        arguments:
+        move_in_x_coordinate (float): added value to x.
+        move_in_y_coordinate (flaot): added value to y
+
+        """
         
-        
-        # Note!! i got stuch here beacuse i did not write the if not isinstance part, a classmate helped me with this part
+        # Note!! i got stuck here beacuse i did not write the if not isinstance part, 
+        # a classmate helped me with this part.
         if not isinstance(move_in_x_coordinate, (int, float)):
             raise TypeError(f"move_in_x_coordinate has to be a number or decimal value")
         if not isinstance(move_in_y_coordinate, (int, float)):
             raise TypeError(f"move_in_y_coordinate has to be a number or decimal value")
-        
-        # this part is going to move the shape depending on the value that giis inputed   
+          
         self._x += move_in_x_coordinate
         self._y += move_in_y_coordinate   
 
 
-      
-    def __eq__(self, other):
+      # this part of the code bellow is  equality and comparison operators.
+    def __eq__(self, other) -> bool :
         if not isinstance(other, Shape):
             return False 
         return self.area == other.area
          
-     # this looks to see if one shape has a smaller area then the other shape 
-    def __lt__(self, other):
+      
+    def __lt__(self, other) -> bool :
         if not isinstance(other, Shape):
             return False 
         return self.area < other.area 
 
-    # checks to see if one shape has a greater area then the other shape
-    def __gt__(self, other):  
+   
+    def __gt__(self, other) -> bool :  
         if not isinstance(other, Shape):
             return False
         return self.area > other.area
 
-    # this checks if one shape has smaller or equal area then other shape
-    def __le__(self, other):
+    
+    def __le__(self, other) -> bool :
         if not isinstance (other, Shape):
             return False 
         return self.area <= other.area 
-    # this is meant to check if area greater then or equal to other shape
-    def __ge__(self, other): 
+    
+    def __ge__(self, other) -> bool : 
         if not isinstance (other, Shape):
             return False 
         return self.area >= other.area 
     # this repr is for other developers
-    def __repr__(self): 
+    
+    def __repr__(self) -> str: 
         return f"shape(x = {self._x}, y = {self._y})"
     
     # this code is for a more readable string showing the position.
-    def __str__(self):
+    def __str__(self) -> str:
         return f" shape placement is : ({self._x}, {self._y})" 
     
     
