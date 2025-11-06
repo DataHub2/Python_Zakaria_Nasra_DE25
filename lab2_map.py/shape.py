@@ -73,9 +73,10 @@ class Shape:
         """ 
         Moves the shape by adding a value to x and y
 
-        arguments:
+        Args:
+        
         move_in_x_coordinate (float): added value to x.
-        move_in_y_coordinate (flaot): added value to y
+        move_in_y_coordinate (float): added value to y
 
         """
         
