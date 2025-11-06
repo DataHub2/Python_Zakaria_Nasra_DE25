@@ -59,11 +59,11 @@ class Circle(Shape):
         return self._radius == 1
     
    
-    def __repr__(self):
+    def __repr__(self) -> str:
         """This gives better readble text to the developers"""
         return f"circle(x = {self._x}, y = {self._y} radius = {self._radius})"
     
-    def __str__(self):
+    def __str__(self) -> str:
         """This gives better readble text of the placement and size"""
         return f"circle placement is : ({self._x}, {self._y}) with radius {self._radius}"
     
